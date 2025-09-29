@@ -68,7 +68,7 @@ export default {
   methods: {
     async login() {
       try {
-        await api.post("/api/login/", { correo: this.correo });
+        await api.post("/login/", { correo: this.correo });
         this.step = 2;
       } catch (err) {
         alert(err.response?.data?.error || "Error en login");

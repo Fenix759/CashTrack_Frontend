@@ -76,7 +76,7 @@ export default {
   methods: {
     async register() {
       try {
-        await api.post("/api/register/", {
+        await api.post("/register/", {
           correo: this.correo,
           nombre: this.nombre,
         });
@@ -87,7 +87,7 @@ export default {
     },
     async verifyOtp() {
       try {
-        await api.post("/api/verify-register/", {
+        await api.post("/verify-register/", {
           correo: this.correo,
           otp: this.otp,
         });

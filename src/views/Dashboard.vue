@@ -316,7 +316,7 @@ export default {
       try {
         const token = localStorage.getItem('token')
         await api.post(
-          '/api/presupuesto/',
+          '/presupuesto/',
           { presupuesto: this.presupuestoTmp }, // 🔥 usamos presupuesto directo
           // { headers: { Authorization: `Bearer ${token}` } },
         )
@@ -333,7 +333,7 @@ export default {
     async actualizarGasto() {
       try {
         const token = localStorage.getItem('token')
-        await api.put(`/api/gastos/${this.editando.id}/`, this.editando, {
+        await api.put(`/gastos/${this.editando.id}/`, this.editando, {
           // headers: { Authorization: `Bearer ${token}` },
         })
         this.editando = null
@@ -345,7 +345,7 @@ export default {
     async borrarGasto(id) {
       try {
         const token = localStorage.getItem('token')
-        await api.delete(`/api/gastos/${id}/`, {
+        await api.delete(`/gastos/${id}/`, {
           // headers: { Authorization: `Bearer ${token}` },
         })
         this.cargarDashboard()
@@ -356,7 +356,7 @@ export default {
     async cargarDashboard() {
       try {
         const token = localStorage.getItem('token')
-        const res = await api.get('/api/dashboard/', {
+        const res = await api.get('/dashboard/', {
           // headers: { Authorization: `Bearer ${token}` },
         })
 
@@ -378,7 +378,7 @@ export default {
     async agregarGasto() {
       try {
         const token = localStorage.getItem('token')
-        await api.post('/api/gastos/', this.nuevo, {
+        await api.post('/gastos/', this.nuevo, {
           // headers: { Authorization: `Bearer ${token}` },
         })
         this.nuevo.cantidad = 0
