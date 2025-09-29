@@ -76,7 +76,7 @@ export default {
     },
     async verifyOtp() {
       try {
-        const res = await api.post("/api/verify-login/", {
+        const res = await api.post("/verify-login/", {
           correo: this.correo,
           otp: this.otp,
         });
