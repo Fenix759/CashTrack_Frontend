@@ -9,9 +9,13 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("access");
-    if (token) {
+
+    // no poner Authorization en endpoints públicos
+    const isPublic = config.url.includes("/login/") || config.url.includes("/register/") || config.url.includes("/verify");
+    if (token && !isPublic) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+
     return config;
   },
   (error) => Promise.reject(error)
